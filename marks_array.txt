@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleMarks {
+    // Declare an array to hold marks
+    uint256[] public marks;
+
+    // Function to add marks to the array
+    function addMarks(uint256 mark) public {
+        marks.push(mark);
+    }
+
+    // Function to get all marks
+    function getMarks() public view returns (uint256[] memory) {
+        return marks;
+    }
+
+    // Function to calculate the total of marks in the array
+    function calculateTotalMarks() public view returns (uint256) {
+        uint256 total = 0;
+        for (uint256 i = 0; i < marks.length; i++) {
+            total += marks[i];
+        }
+        return total;
+    }
+}

@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract PassMarksManager {
+    uint256[10] public passMarks;
+    uint256 public count;
+
+    function addPassMarks(uint256 mark) public {
+        require(mark > 40, "Mark must be > 40");
+        require(count < 10, "Array is full");
+
+        do {
+            passMarks[count] = mark;
+            count++;
+        } while (count < 10 && mark > 40);
+    }
+
+    function getPassMarks() public view returns (uint256[10] memory) {
+        return passMarks;
+    }
+
+    function getPassCount() public view returns (uint256) {
+        return count;
+    }
+}

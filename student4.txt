@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8;
+
+contract Student_management {
+
+struct Student {
+        int stud_id;
+        string name;
+        string department;
+}
+     constructor () payable 
+    {
+
+    }
+
+    Student[] Students;
+
+    function add_stud(int stud_id,string memory name,string memory department) public
+    {
+        Student memory stud = Student(stud_id,name,department);
+        Students.push(stud);
+    }
+}

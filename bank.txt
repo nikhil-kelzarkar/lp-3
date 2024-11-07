@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract YourContract {
+    uint private newbal = 3500;
+
+    function deposit(uint x) public {
+        newbal += x;
+    }
+
+    function withdraw(uint x) public {
+        if (newbal < x) {
+            revert("Insufficient balance");
+        }
+        newbal -= x;
+    }
+
+    function show() public view returns (uint) {
+        return newbal;
+    }
+}
